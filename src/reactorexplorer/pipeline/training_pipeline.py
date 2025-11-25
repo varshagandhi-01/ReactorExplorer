@@ -1,10 +1,12 @@
 import sys 
 from reactorexplorer.components.stage_01_data_ingestion import DataIngestion
+from reactorexplorer.components.stage_02_data_validation import DataValidation
 from reactorexplorer.config.configuration import ConfigurationManager
 from reactorexplorer.logger.log import logging
 from reactorexplorer.exception.exception_handler import AppException
 
-STAGE_NAME = "Data Ingestion Stage"
+# Data Ingestion Stage 
+# Fetch the data from the website. Extract csv file from the downloaded zip file
 
 class DataIngestionTrainingPipeline:
     def __init__ (self):
@@ -21,3 +23,22 @@ class DataIngestionTrainingPipeline:
             logging.info(f"Data ingestion completed\n")
         except Exception as e:
             raise AppException(e, sys) from e
+
+# Data Validation Stage 
+# Validate the csv file is as per the expected schema
+
+class DataValidationTrainingPipeline:
+    def __init__ (self):
+        pass
+
+    def main (self):
+        try:
+            config = ConfigurationManager()
+            data_validation_config = config.get_data_validation_config()
+            data_validation = DataValidation(config = data_validation_config)
+            data_validation.validate_status()
+
+        except Exception as e:
+            raise AppException(e, sys) from e 
+        
+    
