@@ -25,3 +25,5 @@ ReactorExplorer is a data science and machine learning pipeline designed to proc
 ---
 
 ## Project Structure
+
+**Changelog:** See [CHANGELOG.md](CHANGELOG.md) for version history.
