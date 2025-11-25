@@ -1,6 +1,6 @@
 import sys
 from reactorexplorer.logger.log import logging
-from reactorexplorer.pipeline.training_pipeline import DataIngestionTrainingPipeline, DataValidationTrainingPipeline, DataTransformationTrainingPipeline
+from reactorexplorer.pipeline.training_pipeline import DataIngestionTrainingPipeline, DataValidationTrainingPipeline, DataTransformationTrainingPipeline, ModelTrainerTrainingPipeline
 from reactorexplorer.exception.exception_handler import AppException
 
 
@@ -21,10 +21,17 @@ try:
     logging.info(f">>> State {STAGE_NAME} completed <<<\n")
 
     STAGE_NAME = "Data Transformation Stage"
-    # Step 02 Data Transformation
+    # Step 03 Data Transformation
     logging.info(f">>> State {STAGE_NAME} started <<<")
     data_transformation = DataTransformationTrainingPipeline()
     data_transformation.main()
+    logging.info(f">>> State {STAGE_NAME} completed <<<\n")
+
+    STAGE_NAME = "Model Training Stage"
+    # Step 04 Model Training
+    logging.info(f">>> State {STAGE_NAME} started <<<")
+    model_training = ModelTrainerTrainingPipeline()
+    model_training.main()
     logging.info(f">>> State {STAGE_NAME} completed <<<\n")
     
 except Exception as e:

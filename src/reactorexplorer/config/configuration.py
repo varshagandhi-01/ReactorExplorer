@@ -2,7 +2,7 @@ import sys
 from reactorexplorer.constants import *
 from reactorexplorer.utils.utils import read_yaml, create_directories
 from reactorexplorer.exception.exception_handler import AppException
-from reactorexplorer.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig
+from reactorexplorer.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainerConfig
 
 class ConfigurationManager:
     def __init__ (
@@ -76,3 +76,23 @@ class ConfigurationManager:
         
         except Exception as e:
             raise AppException(e, sys) from e         
+        
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        try:
+            config = self.config.model_trainer
+
+            create_directories([config.root_dir])
+
+            model_trainer_config = ModelTrainerConfig(
+                root_dir = config.root_dir,
+                trained_model_name = config.trained_model_name,
+                serialized_objects_dir = config.serialized_objects_dir,
+                data_pivot_name = config.data_pivot_name,
+                data_names_name = config.data_names_name
+            )
+
+            return model_trainer_config
+        
+        except Exception as e:
+            raise AppException(e, sys) from e         
+        

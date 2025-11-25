@@ -24,3 +24,11 @@ class DataTransformationConfig:
     data_pivot_name: str
     data_names_name: str
     clean_data_name: str
+
+@dataclass(frozen = True)
+class ModelTrainerConfig:
+    root_dir: Path
+    trained_model_name: str
+    serialized_objects_dir: Path
+    data_pivot_name: str
+    data_names_name: str
