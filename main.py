@@ -1,6 +1,6 @@
 import sys
 from reactorexplorer.logger.log import logging
-from reactorexplorer.pipeline.training_pipeline import DataIngestionTrainingPipeline, DataValidationTrainingPipeline
+from reactorexplorer.pipeline.training_pipeline import DataIngestionTrainingPipeline, DataValidationTrainingPipeline, DataTransformationTrainingPipeline
 from reactorexplorer.exception.exception_handler import AppException
 
 
@@ -20,7 +20,12 @@ try:
     data_validation.main()
     logging.info(f">>> State {STAGE_NAME} completed <<<\n")
 
-
+    STAGE_NAME = "Data Transformation Stage"
+    # Step 02 Data Transformation
+    logging.info(f">>> State {STAGE_NAME} started <<<")
+    data_transformation = DataTransformationTrainingPipeline()
+    data_transformation.main()
+    logging.info(f">>> State {STAGE_NAME} completed <<<\n")
     
 except Exception as e:
     logging.exception(e)

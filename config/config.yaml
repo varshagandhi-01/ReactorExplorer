@@ -18,6 +18,7 @@ data_transformation:
   serialized_objects_dir: artifacts/serialized_objects
   data_pivot_name: data_pivot.pkl
   data_names_name: data_names.pkl
+  clean_data_name: clean_data.pkl
 
 model_trainer:
   serialized_objects_dir: artifacts/serialized_objects

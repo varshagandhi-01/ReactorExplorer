@@ -1,6 +1,7 @@
 import sys 
 from reactorexplorer.components.stage_01_data_ingestion import DataIngestion
 from reactorexplorer.components.stage_02_data_validation import DataValidation
+from reactorexplorer.components.stage_03_data_transformation import DataTransformation
 from reactorexplorer.config.configuration import ConfigurationManager
 from reactorexplorer.logger.log import logging
 from reactorexplorer.exception.exception_handler import AppException
@@ -41,4 +42,18 @@ class DataValidationTrainingPipeline:
         except Exception as e:
             raise AppException(e, sys) from e 
         
-    
+# Data Transformation Stage 
+# Prepare the datasets for model training. Data Pivot and Data names
+class DataTransformationTrainingPipeline:
+    def __init__ (self):
+        pass
+
+    def main (self):
+        try:
+            config = ConfigurationManager()
+            data_transformation_config = config.get_data_transformation_config()
+            data_transformation = DataTransformation(config = data_transformation_config)
+            data_transformation.transform_data()
+
+        except Exception as e:
+            raise AppException(e, sys) from e

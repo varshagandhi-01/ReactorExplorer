@@ -2,7 +2,7 @@ import sys
 from reactorexplorer.constants import *
 from reactorexplorer.utils.utils import read_yaml, create_directories
 from reactorexplorer.exception.exception_handler import AppException
-from reactorexplorer.entity.config_entity import DataIngestionConfig, DataValidationConfig
+from reactorexplorer.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig
 
 class ConfigurationManager:
     def __init__ (
@@ -55,3 +55,24 @@ class ConfigurationManager:
 
         except Exception as e:
             raise AppException(e, sys) from e
+        
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        try:
+            config = self.config.data_transformation
+
+            create_directories([config.root_dir])
+
+            data_transformation_config = DataTransformationConfig(
+                root_dir = config.root_dir,
+                data_path = config.data_path,
+                clean_data_dir = config.clean_data_dir,
+                serialized_objects_dir = config.serialized_objects_dir,
+                data_pivot_name = config.data_pivot_name,
+                data_names_name = config.data_names_name,
+                clean_data_name = config.clean_data_name
+            )
+
+            return data_transformation_config
+        
+        except Exception as e:
+            raise AppException(e, sys) from e         

@@ -14,3 +14,13 @@ class DataValidationConfig:
     status_file: str
     unzip_data_dir: Path
     all_schema: str
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    data_path: Path
+    clean_data_dir: Path
+    serialized_objects_dir: Path
+    data_pivot_name: str
+    data_names_name: str
+    clean_data_name: str
