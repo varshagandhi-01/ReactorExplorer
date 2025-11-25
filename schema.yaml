@@ -1,1 +1,8 @@
-key: value
+COLUMNS:
+  country: object
+  country_long: object
+  name: object
+  capacity_mw: float64
+  latitude: float64
+  longitude: float64
+  primary_fuel: object
