@@ -100,15 +100,20 @@ if __name__ == "__main__":
     if st.button("Train"):
         obj.train_engine()
 
-    # Load reactor names for dropdown selection
-    reactor_names = pickle.load(open(os.path.join(obj.config.serialized_objects_dir, obj.config.data_names_name), 'rb'))
-    # Dropdown selector for choosing reactor name
-    selected_reactor = st.selectbox(
-    "Type or select a reactor from the dropdown to see your recommendations", reactor_names)
+    # Check if the data_names pickle file exists
+    data_names_path = os.path.join(obj.config.serialized_objects_dir, obj.config.data_names_name)
+    if os.path.exists(data_names_path):
+        # Load reactor names for dropdown selection
+        reactor_names = pickle.load(open(data_names_path, 'rb'))
+        # Dropdown selector for choosing reactor name
+        selected_reactor = st.selectbox(
+            "Type or select a reactor from the dropdown to see your recommendations", reactor_names)
 
-    # Get recommendations on button press
-    if st.button("Find matches"):
-        obj.recommender_engine(selected_reactor)
+        # Get recommendations on button press
+        if st.button("Find matches"):
+            obj.recommender_engine(selected_reactor)
+    else:
+        st.error("Reactor names data file not found. Please train the model first.")
 
-                            
-    
+
+
