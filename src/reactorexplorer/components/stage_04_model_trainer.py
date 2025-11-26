@@ -35,7 +35,7 @@ class ModelTrainer:
 
             # save the trained model
             os.makedirs(self.config.root_dir, exist_ok=True)
-            file_name = os.path.join(self.config.serialized_objects_dir, self.config.trained_model_name)
+            file_name = os.path.join(self.config.root_dir, self.config.trained_model_name)
             pickle.dump(model, open(file_name, 'wb'))
             logging.info(f"saved model to {file_name}")
         except Exception as e:

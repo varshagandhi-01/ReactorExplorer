@@ -48,7 +48,7 @@ class Recommendation:
         try:
             reactor_list = []
             # Load trained model from pickle file
-            model = pickle.load(open(os.path.join(self.config.serialized_objects_dir, self.config.trained_model_name), 'rb'))
+            model = pickle.load(open(os.path.join(self.config.root_dir, self.config.trained_model_name), 'rb'))
              # Load pivot table used during training
             data_pivot = pickle.load(open(os.path.join(self.config.serialized_objects_dir, self.config.data_pivot_name), 'rb'))
             # Locate the row index of selected reactor

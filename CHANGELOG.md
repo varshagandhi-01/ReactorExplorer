@@ -12,17 +12,13 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - None yet.
 
-## [0.1.0] - 2025-02-15
+## [1.0.0] - 2025-11-26
 ### Added
-- Initial project structure.
-- Data ingestion, validation, transformation, and model training pipeline.
-- Base configuration files and Dockerfile.
+- UI application using Streamlit
+- CICD workflow
 
-## [0.2.0] - 2025-03-01
-### Added
-- Reactor recommendation API endpoint.
+## [1.0.1] - 2025-11-26
+### Updated
+- Fixed issue 1
 
-## [Unreleased]
-### Added
-- More tests for validation module.
 
