@@ -26,3 +26,10 @@ model_trainer:
   trained_model_name: model.pkl
   data_pivot_name: data_pivot.pkl
   data_names_name: data_names.pkl
+
+model_recommender:
+  serialized_objects_dir: artifacts/serialized_objects
+  root_dir: artifacts/model_trainer
+  trained_model_name: model.pkl
+  data_pivot_name: data_pivot.pkl
+  data_names_name: data_names.pkl
