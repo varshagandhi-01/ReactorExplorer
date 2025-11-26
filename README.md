@@ -1,6 +1,16 @@
 # ReactorExplorer
 
-ReactorExplorer is a data science and machine learning pipeline designed to process, validate, transform, and analyze data related to global power plants, with a focus on nuclear energy. The project uses Nearest neighbour algorithm to match reactors with a selected reactor.
+ReactorExplorer is a data-driven application designed to help users explore and compare nuclear power plant reactor types using a recommendation engine based on similarity metrics. The goal is to provide an interactive way to analyze reactor specifications, performance characteristics, fuel type, safety attributes, and operational data.
+
+Features
+
+Reactor recommendation engine — find similar plants based on technical specifications
+
+ML-based similarity model — k-NN
+
+Automated data preprocessing pipeline
+
+Modular structure for scalability & improvements
 
 ---
 
@@ -39,6 +49,51 @@ ReactorExplorer/
 ---
 **Changelog:** See [CHANGELOG.md](CHANGELOG.md) for version history.
 
+---
+## Installation
+```
+git clone https://github.com/varshagandhi-01/ReactorExplorer
+cd ReactorExplorer
+pip install -r requirements.txt
+
+```
+---
+## Usage
+Jupyter Notebook
+```
+jupyter notebook notebooks/reactor_exploration.ipynb
+```
+Streamlit Web App 
+```
+streamlit run app.py
+```
+---
+## Model / Approach
+Stage       	    Description
+Data Collection	    Public nuclear reactor datasets
+Preprocessing	    Cleaning, scaling, handling missing values
+Feature Engineering	Technical attributes used as similarity vectors
+Model	            k-Nearest Neighbors
+Evaluation	        Qualitative similarity & clustering visualization
+
+Example Output
+Query Reactor	Recommended Similar Reactors
+Armenian-2      ATUCHA I, Kernkraftwerk Maehleberg, M.A.P.P., N.A.P.S, KAKRAPARA
+
+
+Dataset Info
+
+Source: WRI
+
+Key attributes: Capacity MW, Name
+
+## Roadmap
+
+Add clustering visualizations (UMAP/PCA)
+
+Build evaluation metrics dashboard
+
+Add model benchmarking
 ---
 
 ## AWS-CICD-Deployment-with-Github-Actions
