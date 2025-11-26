@@ -68,3 +68,8 @@ AWS_SECRET_ACCESS_KEY
 AWS_REGION
 AWS_ECR_LOGIN_URI
 ECR_REPOSITORY_NAME
+
+Input:
+List of reactors (as per data file source: WRI)
+Output:
+![Find matching reactors](image.png)
