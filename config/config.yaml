@@ -1,35 +1,35 @@
-artifacts_root: artifacts
+artifacts_root: data
 
 data_ingestion:
-  root_dir: artifacts/data_ingestion
+  root_dir: data/data_ingestion
   source_url: https://wri-dataportal-prod.s3.amazonaws.com/manual/global_power_plant_database_v_1_3.zip
-  local_data_file: artifacts/data_ingestion/data.zip
-  unzip_dir: artifacts/data_ingestion
+  local_data_file: data/data_ingestion/data.zip
+  unzip_dir: data/data_ingestion
 
 data_validation:
-  root_dir: artifacts/data_validation
-  unzip_data_dir: artifacts/data_ingestion/global_power_plant_database.csv
-  status_file: artifacts/data_validation/status.txt
+  root_dir: data/data_validation
+  unzip_data_dir: data/data_ingestion/global_power_plant_database.csv
+  status_file: data/data_validation/status.txt
 
 data_transformation:
-  root_dir: artifacts/data_transformation
-  data_path: artifacts/data_ingestion/global_power_plant_database.csv
-  clean_data_dir: artifacts/data_transformation/clean_data
-  serialized_objects_dir: artifacts/serialized_objects
+  root_dir: data/data_transformation
+  data_path: data/data_ingestion/global_power_plant_database.csv
+  clean_data_dir: data/data_transformation/clean_data
+  serialized_objects_dir: data/serialized_objects
   data_pivot_name: data_pivot.pkl
   data_names_name: data_names.pkl
   clean_data_name: clean_data.pkl
 
 model_trainer:
-  serialized_objects_dir: artifacts/serialized_objects
-  root_dir: artifacts/model_trainer
+  serialized_objects_dir: data/serialized_objects
+  root_dir: data/model_trainer
   trained_model_name: model.pkl
   data_pivot_name: data_pivot.pkl
   data_names_name: data_names.pkl
 
 model_recommender:
-  serialized_objects_dir: artifacts/serialized_objects
-  root_dir: artifacts/model_trainer
+  serialized_objects_dir: data/serialized_objects
+  root_dir: data/model_trainer
   trained_model_name: model.pkl
   data_pivot_name: data_pivot.pkl
   data_names_name: data_names.pkl

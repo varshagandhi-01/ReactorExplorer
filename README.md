@@ -1,6 +1,6 @@
 # ReactorExplorer
 
-ReactorExplorer is a data science and machine learning pipeline designed to process, validate, transform, and analyze data related to global power plants, with a focus on nuclear energy. The project includes data ingestion, validation, transformation, and model training to provide insights and recommendations.
+ReactorExplorer is a data science and machine learning pipeline designed to process, validate, transform, and analyze data related to global power plants, with a focus on nuclear energy. The project uses Nearest neighbour algorithm to match reactors with a selected reactor.
 
 ---
 
@@ -30,7 +30,7 @@ ReactorExplorer/
 │
 ├── src/
 ├── tests/
-├── artifacts/
+├── data/
 ├── research/
 ├── CHANGELOG.md
 ├── README.md
@@ -86,6 +86,9 @@ ECR_REPOSITORY_NAME
 ```
 ### Input:
 List of reactors (as per data file source: WRI)
+
+Data source sample:
+![CSV data](image-1.png)
 
 ### Output:
 ![Find matching reactors](image.png)
