@@ -32,7 +32,7 @@ ReactorExplorer/
 ├── tests/
 ├── artifacts/
 ├── research/
-├── CHANGELOG.md   <-- ✔ create this
+├── CHANGELOG.md
 ├── README.md
 └── ...
 
